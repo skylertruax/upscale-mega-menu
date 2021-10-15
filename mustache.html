@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Navigation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/header.css">
+</head>
+<body>
+
+    <header class="clearfix">
+        <div class="container relate">
+            <!--<a class="logo pull-left" href="#">LOGO</a>-->
+            <nav class="pull-right " id="nav"></nav>
+        </div>
+    </header>
+    
+    <!-- Outer -->
+    <script type="text/template" id="outerTemplate">
+        <ul>
+            <li class=level-1>
+                <a href='#'>
+                    Home
+                </a>
+            </li>
+            <li class=level-1>
+                <a href='#'>
+                    About Us
+                </a>
+            </li>
+            <li class=level-1>
+                <a href='#' class="title">
+                    Category
+                </a>
+                {{> innerTemplate}}
+            </li>
+        </ul>
+    </script>
+    <!-- Inner -->
+    <script type="text/template" id="innerTemplate">
+        <ul>
+            {{#parents}}
+                <li class=level-2>
+                    <a href=#>{{name}}</a>
+                        {{> subCategoryTemplate}}
+                </li>
+            {{/parents}}
+        </ul>
+    </script>
+    <script type="text/template" id="subCategoryTemplate">
+        <ul>
+            {{#content}}
+                <li class=level-3>
+                    <a href=#>{{name}}</a>
+                </li>
+            {{/content}}
+        </ul>
+    </script>
+
+    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/drystone.js"></script>
+    <script src="js/header.js"></script>
+    <script type="module" src="js/customScript.js"></script>
+    <!-- (check => level3 childs){
+
+        1. get total count of level3 childs
+        2. create 4 containers with 25% width of parent and loop the total no. of childs inside 4 of it 1 by 1
+        3. 
+
+
+        (goto => its parent level)
+    } -->
+
+</body>
+</html>
